@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
     public static void main(String[] args){
-        System.out.println("To Check Name Validity, Press 1 for First Name or 2 for Last Name and 3 for Email");
+        System.out.println("To Check Name Validity, Press 1 for First Name or 2 for Last Name\n or 3 for Email and 4 for Mobile Number");
         Scanner input = new Scanner(System.in);
         switch (input.nextInt()){
             case 1:
@@ -18,6 +18,9 @@ public class UserRegistration {
                 break;
             case 3:
                 emailID();
+                break;
+            case 4:
+                phoneNo();
                 break;
             default:
                 System.out.println("Please Enter either 1 or 2");
@@ -64,6 +67,20 @@ public class UserRegistration {
             System.out.println("Email is valid");
         }else {
             System.out.println("Email is invalid");
+        }
+    }
+    public static void phoneNo(){
+        String regex="^[+]{1}[1-9]{1}[0-9]{0,1}\\s{1}[1-9]{1}[0-9]{9}$";
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter your phone number: ");
+        String number = input.nextLine();
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(number);
+        boolean result = matcher.matches();
+        if(result){
+            System.out.println("Mobile number is valid");
+        }else{
+            System.out.println("Mobile number is invalid");
         }
     }
 }
