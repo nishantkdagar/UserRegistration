@@ -88,7 +88,7 @@ public class UserRegistration {
         }
     }
     public static void passwordCheck(){
-        String regex="^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9!@#$%^&*_]{7,}$";
+        String regex="^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&_+=()])[A-Za-z0-9@#$%^&_=()]{8,}$";
         Scanner input = new Scanner(System.in);
         System.out.print("Enter your password: ");
         String password = input.nextLine();
