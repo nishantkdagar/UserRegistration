@@ -60,7 +60,7 @@ public class UserRegistration {
         }
     }
     public static void emailID(){
-        String regex="^[a-z]{3}[a-zA-z.]{0,}+@+bl.co+[a-z.]{0,}$";
+        String regex="^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$";
         Scanner input = new Scanner(System.in);
         System.out.print("Enter Email Address: ");
         String email = input.nextLine();
