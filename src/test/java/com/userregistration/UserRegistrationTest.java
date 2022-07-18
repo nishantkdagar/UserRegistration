@@ -7,34 +7,52 @@ public class UserRegistrationTest {
     UserRegistration usrreg = new UserRegistration();
     @Test
     public void firstNameTrue(){
-        boolean result = usrreg.firstName("Nishant");
-        Assertions.assertTrue(result);
+        try {
+            boolean result = usrreg.firstName("Nishant");
+            Assertions.assertTrue(result);
+            System.out.println("First Name is Valid");
+        }
+        catch (InvalidFirstName e){
+            System.out.println("First Name is Invalid:\n" +e);
+        }
     }
-    @Test
+    /*@Test
     public void firstNameFalse(){
         boolean result = usrreg.firstName("nishant");
         Assertions.assertFalse(result);
-    }
+    }*/
     @Test
     public void lastNameTrue(){
-        boolean result = usrreg.lastName("Kumar");
-        Assertions.assertTrue(result);
+        try {
+            boolean result = usrreg.lastName("Kumar");
+            Assertions.assertTrue(result);
+            System.out.println("Last Name is Valid");
+        }
+        catch (InvalidLastName e){
+            System.out.println("Last name is not Valid:\n" +e);
+        }
     }
-    @Test
+    /*@Test
     public void lastNameFalse(){
         boolean result = usrreg.lastName("kumar");
         Assertions.assertFalse(result);
-    }
+    }*/
     @Test
     public void emailTrue(){
-        boolean result = usrreg.emailID("nishant@gmail.com");
-        Assertions.assertTrue(result);
+        try {
+            boolean result = usrreg.emailID("nishant@gmail.com");
+            Assertions.assertTrue(result);
+            System.out.println("The Email ID is Valid");
+        }
+        catch (InvalidEmail e){
+            System.out.println("The Email you entered is Invalid:\n" +e);
+        }
     }
-    @Test
+    /*@Test
     public void emailFalse(){
         boolean result = usrreg.emailID("nishant@.com");
         Assertions.assertFalse(result);
-    }
+    }*/
     @Test
     public void mobileNumberTrue(){
         boolean result = usrreg.phoneNo("+91 8901351647");

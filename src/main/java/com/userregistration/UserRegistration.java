@@ -30,7 +30,7 @@ public class UserRegistration {
                 System.out.println("Please Enter either 1 or 2");
         }
     }*/
-    public boolean firstName(String name){
+    public boolean firstName(String name) throws InvalidFirstName{
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         /*Scanner input = new Scanner(System.in);
         System.out.print("Enter First Name: ");
@@ -38,15 +38,14 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
         boolean result = matcher.matches();
-        /*if(result)
+        if(!result)
         {
-            System.out.println("Valid First Name");
+            throw new InvalidFirstName("First name needs to be minimum three chars long and start with a capital letter");
         }else {
-            System.out.println("Invalid First Name");
-        }*/
-        return result;
+            return result;
+        }
     }
-    public boolean lastName(String name){
+    public boolean lastName(String name) throws InvalidLastName{
         String regex="^[A-Z]{1}[a-z]{2,}$";
         /*Scanner input = new Scanner(System.in);
         System.out.print("Enter Last Name: ");
@@ -54,14 +53,14 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
         boolean result = matcher.matches();
-        /*if (result){
-            System.out.println("Last name is Valid");
+        if (!result){
+            throw new InvalidLastName("Last name needs to be minimum three chars long and start with a capital letter");
         }else{
-            System.out.println("Invalid Last Name");
-        }*/
-        return result;
+            return result;
+        }
+
     }
-    public boolean emailID(String email){
+    public boolean emailID(String email) throws InvalidEmail{
         String regex="^(?!.*@.*@)[a-z+_-]+(.[a-z0-9])*@[a-z0-9]+(.[a-z])*.[a-z]{2,}$";
         /*Scanner input = new Scanner(System.in);
         System.out.print("Enter Email Address: ");
@@ -69,12 +68,12 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         boolean result = matcher.matches();
-        /*if(result){
-            System.out.println("Email is valid");
+        if(!result){
+            throw new InvalidEmail("The email you entered is not valid, please enter your actual email.");
         }else {
-            System.out.println("Email is invalid");
-        }*/
-        return result;
+            return result;
+        }
+
     }
     public boolean phoneNo(String number){
         String regex="^[+]{1}[1-9]{1}[0-9]{0,1}\\s{1}[1-9]{1}[0-9]{9}$";
