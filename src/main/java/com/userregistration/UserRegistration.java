@@ -4,37 +4,15 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+interface firstName{
+    boolean validFirstName(String text) throws InvalidFirstName;
+}
 public class UserRegistration {
-    /*public static void main(String[] args){
-        System.out.println("To Check Name Validity, Press 1 for First Name or 2 for Last Name\n" +
-                "or 3 for Email or 4 for Mobile Number and 5 for password");
-        Scanner input = new Scanner(System.in);
-        switch (input.nextInt()){
-            case 1:
-                firstName();
-                break;
-            case 2:
-                lastName();
-                break;
-            case 3:
-                emailID();
-                break;
-            case 4:
-                phoneNo();
-                break;
-            case 5:
-                passwordCheck();
-                break;
-            default:
-                System.out.println("Please Enter either 1 or 2");
-        }
-    }*/
-    public boolean firstName(String name) throws InvalidFirstName{
+    firstName fName = name -> {
+     if (name == null){
+         throw new InvalidFirstName("First Name Can't  be Null");
+    }
         String regex = "^[A-Z]{1}[a-z]{2,}$";
-        /*Scanner input = new Scanner(System.in);
-        System.out.print("Enter First Name: ");
-        String name = input.nextLine();*/
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(name);
         boolean result = matcher.matches();
@@ -44,7 +22,7 @@ public class UserRegistration {
         }else {
             return result;
         }
-    }
+    };
     public boolean lastName(String name) throws InvalidLastName{
         String regex="^[A-Z]{1}[a-z]{2,}$";
         /*Scanner input = new Scanner(System.in);

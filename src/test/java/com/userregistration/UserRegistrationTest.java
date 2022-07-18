@@ -8,7 +8,7 @@ public class UserRegistrationTest {
     @Test
     public void firstNameTrue(){
         try {
-            boolean result = usrreg.firstName("Nishant");
+            boolean result = usrreg.fName.validFirstName("Nishant");
             Assertions.assertTrue(result);
             System.out.println("First Name is Valid");
         }
